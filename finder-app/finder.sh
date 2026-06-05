@@ -4,6 +4,7 @@
 if [ $# -ne 2 ] 
 then
     echo "The number of arguments should be 2, please specify your arguments."
+    echo "Usage: ./finder.sh <directory> <search string>"
     exit 1
 fi
 
@@ -13,17 +14,12 @@ SEARCHSTR=$2
 #return 1 when directory is not exist
 if [ ! -d "$FILESDIR" ]
 then
-    echo "The first argument should be a directory."
+    echo "The first argument should be a directory existing."
     exit 1
 fi
 
 #using loop to find matching files
-X=0
-Y=0
-for file in $(find "$FILESDIR" -type f)
-do
-    X=$((X+1))
-    Y=$(( $(grep -c "${SEARCHSTR}" "${file}") + Y))
-done
+X=$(find "$FILESDIR" -type f | wc -l)
+Y=$(grep -r "$SEARCHSTR" "$FILESDIR" | wc -l)
 
 echo "The number of files are ${X} and the number of matching lines are ${Y}"
