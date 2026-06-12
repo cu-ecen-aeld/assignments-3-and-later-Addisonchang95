@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #return 1 when arguments are not specified
 if [ $# -ne 2 ] 
