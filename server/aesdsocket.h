@@ -13,4 +13,5 @@ void setup_daemon(void);
  * @param client_ip client socket ip to use for syslog
  */
 void handle_client_connection(int client_fd, const char *client_ip);
+void close_server(void);
 #endif

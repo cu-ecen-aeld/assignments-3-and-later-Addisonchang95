@@ -9,6 +9,6 @@ aesdsocket.o: aesdsocket.c aesdsocket.h
 	$(CC) $(CFLAGS) -c aesdsocket.c -o aesdsocket.o
 
 clean:
-	rm -f aesdsocket *.o
+	rm -f aesdsocket *.o valgrind-out.txt
 
 .PHONY: all clean
